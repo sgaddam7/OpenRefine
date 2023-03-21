@@ -64,3 +64,7 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
+    - name: SWE 637 compile openrefine tests
+      run: mvn clean install -DskipTests -pl main -am
+    - name: SWE 637 run openrefine tests
+      run: mvn -pl main test -Dtest=com.google.refine.clustering.binning.BinningClustererTests#testSerializeBinningClusterer
