@@ -66,5 +66,5 @@ jobs:
         category: "/language:${{matrix.language}}"
     - name: SWE 637 compile openrefine tests
       run: mvn clean install -DskipTests -pl main -am
-    - name: SWE 637 run openrefine tests
-      run: mvn -pl main test -Dtest=com.google.refine.clustering.binning.BinningClustererTests#testSerializeBinningClusterer
+    - name: SWE 637 run NONDEX openrefine tests
+      run: mvn -pl main edu.illinois:nondex-maven-plugin:2.1.1:nondex -Dtest=com.google.refine.clustering.binning.BinningClustererTests#testSerializeBinningClusterer -DnondexRuns=10
